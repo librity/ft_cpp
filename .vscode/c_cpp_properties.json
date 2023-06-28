@@ -1,18 +1,14 @@
 {
-    "configurations": [
-        {
-            "name": "Linux",
-            "includePath": [
-                "${workspaceFolder}/**",
-                "/usr/include/c++/11",
-                "/usr/include/x86_64-linux-gnu/c++/11"
-            ],
-            "defines": [],
-            "compilerPath": "/usr/bin/clang",
-            "cStandard": "c17",
-            "cppStandard": "c++14",
-            "intelliSenseMode": "linux-clang-x64"
-        }
-    ],
-    "version": 4
+  "configurations": [
+    {
+      "name": "Linux",
+      "includePath": ["~/.local/include"],
+      "defines": [],
+      "compilerPath": "/usr/bin/c++",
+      "cStandard": "${default}",
+      "cppStandard": "c++98",
+      "intelliSenseMode": "${default}"
+    }
+  ],
+  "version": 4
 }
