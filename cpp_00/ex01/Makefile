@@ -6,12 +6,12 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/28 21:50:19 by lpaulo-m          #+#    #+#              #
-#    Updated: 2023/06/29 18:56:26 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2023/06/29 20:36:50 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = phonebook
+NAME = phone_book
 
 CC = c++
 CC_STRICT = $(CC) $(CCF_STD) $(CCF_STRICT)
@@ -27,7 +27,7 @@ COPY = cp
 REMOVE = /bin/rm -f
 REMOVE_RECURSIVE = /bin/rm -rf
 
-SOURCES = phonebook.cpp Contact.cpp
+SOURCES = main.cpp PhoneBook.cpp Contact.cpp
 
 ################################################################################
 # REQUIRED

@@ -6,31 +6,30 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 21:50:22 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/06/29 20:15:33 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/06/29 22:02:31 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-Contact::Contact(std::string name, std::string phone)
+Contact::Contact(void)
 {
-	std::cout << "Contact constructor called" << std::endl;
-
-	this->name = name;
-	this->phone = phone;
-
-	return;
+	this->_empty = true;
 }
+Contact::~Contact(void) {}
 
-Contact::~Contact(void)
+void Contact::set(std::string name, std::string phone)
 {
-	std::cout << "Contact destructor called" << std::endl;
-	return;
+	this->_empty = false;
+
+	this->_name = name;
+	this->_phone = phone;
 }
 
 void Contact::inspect(void)
 {
-	std::cout << "Member function/method called" << std::endl;
-	std::cout << "Name: " << this->name << ", Phone: " << this->phone << std::endl;
-	return;
+	if (this->_empty)
+		return;
+
+	std::cout << "\tName: " << this->_name << ", Phone: " << this->_phone << std::endl;
 }
