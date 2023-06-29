@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 21:50:22 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/06/28 22:54:21 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/06/29 20:04:56 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,14 @@ int main(int argc, char *argv[])
 		return (0);
 	}
 
-	std::string token;
+	std::string result;
 	argv++;
 	while (*argv != NULL)
 	{
-		token = to_upper(*argv);
-
-		std::cout << token;
+		result += to_upper(*argv);
 		argv++;
 	}
-	std::cout << std::endl;
+	std::cout << result << std::endl;
 
 	return (0);
 }
