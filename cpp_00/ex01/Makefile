@@ -6,12 +6,12 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/28 21:50:19 by lpaulo-m          #+#    #+#              #
-#    Updated: 2023/06/28 22:47:03 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2023/06/29 18:50:29 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = megaphone
+NAME = phone_book
 
 CC = c++
 CC_STRICT = $(CC) $(CCF_STD) $(CCF_STRICT)
@@ -27,7 +27,7 @@ COPY = cp
 REMOVE = /bin/rm -f
 REMOVE_RECURSIVE = /bin/rm -rf
 
-SOURCES = megaphone.cpp
+SOURCES = phone_book.cpp Contact.cpp
 
 ################################################################################
 # REQUIRED
@@ -56,6 +56,4 @@ fclean: clean
 ################################################################################
 
 run: re
-	./$(NAME) "shhhhh... I think the students are asleep..."
-	./$(NAME)  Damnit " ! " "Sorry students, I thought this thing was off."
 	./$(NAME)

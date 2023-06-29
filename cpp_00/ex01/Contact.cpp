@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 21:50:22 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/06/29 18:44:23 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/06/29 18:48:09 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONE_BOOK_HPP
-#define PHONE_BOOK_HPP
+#include <iostream>
+#include "Contact.hpp"
 
-class PhoneBook
+Contact::Contact(void)
 {
-};
+	std::cout << "Contact constructor called" << std::endl;
+	return;
+}
 
-#endif
+Contact::~Contact(void)
+{
+	std::cout << "Contact destructor called" << std::endl;
+	return;
+}

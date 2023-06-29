@@ -11,7 +11,7 @@
 
 </div>
 
-<p align="center"> A C++ piscine.
+<p align="center"> A C++ piscine, swimsuit not included.
   <br>
 </p>
 
