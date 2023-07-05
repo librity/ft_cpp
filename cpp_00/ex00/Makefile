@@ -6,10 +6,9 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/28 21:50:19 by lpaulo-m          #+#    #+#              #
-#    Updated: 2023/06/28 22:47:03 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2023/07/04 20:32:37 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 NAME = megaphone
 
@@ -36,9 +35,7 @@ SOURCES = megaphone.cpp
 all: $(NAME)
 
 $(NAME):
-	$(CC_STRICT) \
-		$(SOURCES) \
-		-o $(NAME)
+	$(CC_STRICT) $(SOURCES) -o $(NAME)
 
 re: fclean all
 
@@ -52,10 +49,16 @@ clean:
 fclean: clean
 
 ################################################################################
-# examples
+# EXAMPLES
 ################################################################################
 
 run: re
 	./$(NAME) "shhhhh... I think the students are asleep..."
 	./$(NAME)  Damnit " ! " "Sorry students, I thought this thing was off."
 	./$(NAME)
+
+################################################################################
+# PHONY
+################################################################################
+
+.PHONY: all re clean fclean run

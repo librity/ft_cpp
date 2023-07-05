@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 21:50:22 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/06/29 22:02:35 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/07/05 19:47:55 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,23 @@ class Contact
 {
 
 public:
-	Contact(void);
-	~Contact(void);
-
 	void inspect(void);
 
-	void set(std::string name, std::string phone);
+	void set(
+		std::string first_name,
+		std::string last_name,
+		std::string nickname,
+		std::string phone_number,
+		std::string darkest_secret);
 
 private:
-	std::string _name;
-	std::string _phone;
-	bool _empty;
+	bool _empty = true;
+
+	std::string _first_name;
+	std::string _last_name;
+	std::string _nickname;
+	std::string _phone_number;
+	std::string _darkest_secret;
 };
 
 #endif

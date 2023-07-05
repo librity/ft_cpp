@@ -6,18 +6,17 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/28 21:50:19 by lpaulo-m          #+#    #+#              #
-#    Updated: 2023/06/29 20:36:50 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2023/07/04 23:49:14 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 NAME = phone_book
 
 CC = c++
-CC_STRICT = $(CC) $(CCF_STD) $(CCF_STRICT)
+CC_STRICT = $(CC) $(CCF_STRICT) $(CCF_STD)
 
 CCF_STRICT = -Wall -Wextra -Werror
-CCF_STD =  -std=c++98
+CCF_STD = -std=c++98
 
 MAKE_EXTERNAL = make -C
 SAFE_MAKEDIR = mkdir -p
@@ -27,7 +26,8 @@ COPY = cp
 REMOVE = /bin/rm -f
 REMOVE_RECURSIVE = /bin/rm -rf
 
-SOURCES = main.cpp PhoneBook.cpp Contact.cpp
+SOURCES = PhoneBook.cpp Contact.cpp main.cpp
+OBJECTS = $(SOURCES:.cpp=.o)
 
 ################################################################################
 # REQUIRED
@@ -35,10 +35,11 @@ SOURCES = main.cpp PhoneBook.cpp Contact.cpp
 
 all: $(NAME)
 
-$(NAME):
-	$(CC_STRICT) \
-		$(SOURCES) \
-		-o $(NAME)
+%.o: %.cpp
+	$(CC_STRICT) -c $< -o $@
+
+$(NAME): $(OBJECTS)
+	$(CC_STRICT) $(SOURCES) -o $(NAME)
 
 re: fclean all
 
@@ -47,13 +48,20 @@ re: fclean all
 ################################################################################
 
 clean:
-	$(REMOVE) $(NAME)
+	$(REMOVE) $(OBJECTS)
 
 fclean: clean
+	$(REMOVE) $(NAME)
 
 ################################################################################
-# examples
+# EXAMPLES
 ################################################################################
 
 run: re
 	./$(NAME)
+
+################################################################################
+# PHONY
+################################################################################
+
+.PHONY: all re clean fclean run
