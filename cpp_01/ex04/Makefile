@@ -6,11 +6,11 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/09 16:07:56 by lpaulo-m          #+#    #+#              #
-#    Updated: 2023/07/16 15:14:33 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2023/07/16 23:32:02 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fight
+NAME = sed
 
 CC = c++
 CC_STRICT = $(CC) $(CCF_STRICT) $(CCF_STD)
@@ -26,7 +26,7 @@ COPY = cp
 REMOVE = /bin/rm -f
 REMOVE_RECURSIVE = /bin/rm -rf
 
-SOURCES = Weapon.cpp HumanA.cpp HumanB.cpp main.cpp
+SOURCES = Sed.cpp main.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
 ################################################################################
@@ -58,10 +58,10 @@ fclean: clean
 ################################################################################
 
 run: re
-	./$(NAME)
+	./$(NAME) example asd replaced
 
 vg: re
-	valgrind ./$(NAME)
+	valgrind ./$(NAME) example asd replaced
 
 ################################################################################
 # PHONY
