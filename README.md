@@ -47,3 +47,5 @@ that offers a healthy alternative to traditional education:
 It's an amazing school, and I'm grateful for the opportunity.
 
 ## 📚 Resources <a name="resources"></a>
+
+- https://www.udemy.com/course/beginning-c-plus-plus-programming/
