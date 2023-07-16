@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 21:50:22 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/07/09 15:37:55 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/07/16 12:32:39 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@ void PhoneBook::run(void)
 	{
 		std::cout << "Type in a command (ADD, SEARCH, EXIT): ";
 		std::getline(std::cin, input);
+
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			return;
+		}
 
 		if (input == "ADD")
 		{

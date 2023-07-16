@@ -6,11 +6,11 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/09 16:07:56 by lpaulo-m          #+#    #+#              #
-#    Updated: 2023/07/16 12:45:29 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2023/07/16 12:45:38 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = zombie
+NAME = zombies
 
 CC = c++
 CC_STRICT = $(CC) $(CCF_STRICT) $(CCF_STD)
@@ -26,7 +26,7 @@ COPY = cp
 REMOVE = /bin/rm -f
 REMOVE_RECURSIVE = /bin/rm -rf
 
-SOURCES = Zombie.cpp newZombie.cpp randomChump.cpp main.cpp
+SOURCES = Zombie.cpp zombieHorde.cpp main.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
 ################################################################################
