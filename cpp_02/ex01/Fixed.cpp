@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 16:08:08 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/07/18 01:02:48 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/07/18 01:18:12 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,13 @@ Fixed::Fixed(const int int_value)
 }
 
 Fixed::Fixed(const float fp_value)
-	: value((int)roundf(fp_value * (1 << this->frac_bits)))
 {
 	std::cout << "Float constructor called" << std::endl;
+
+	int exponent = 1 << this->frac_bits;
+	float scaled = fp_value * exponent;
+	int rounded = (int)roundf(scaled);
+	this->value = rounded;
 }
 
 Fixed::Fixed(const Fixed &fixed)
@@ -53,12 +57,16 @@ void Fixed::setRawBits(int const raw)
 
 int Fixed::toInt(void) const
 {
-	return (int)this->value / (int)(1 << this->frac_bits);
+	int exponent = 1 << this->frac_bits;
+
+	return (int)this->value / exponent;
 }
 
 float Fixed::toFloat(void) const
 {
-	return (float)this->value / (float)(1 << this->frac_bits);
+	float exponent = 1 << this->frac_bits;
+
+	return (float)this->value / exponent;
 }
 
 Fixed &Fixed::operator=(const Fixed &fixed)
