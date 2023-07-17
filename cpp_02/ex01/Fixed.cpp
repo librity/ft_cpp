@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 16:08:08 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/07/17 23:21:15 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/07/18 00:07:57 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@ Fixed::Fixed(void) : value(0)
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(const int value) : value(value << this->frac_bits)
+Fixed::Fixed(const int int_value)
+	: value(int_value << this->frac_bits)
 {
 	std::cout << "Int constructor called" << std::endl;
 }
 
-Fixed::Fixed(const float value) : value((int)roundf(value * (1 << this->frac_bits)))
+Fixed::Fixed(const float fp_value)
+	: value((int)roundf(fp_value * (1 << this->frac_bits)))
 {
 	std::cout << "Float constructor called" << std::endl;
 }

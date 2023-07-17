@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 16:08:11 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/07/17 23:21:23 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/07/18 00:31:00 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class Fixed
 
 public:
 	Fixed(void);
-	Fixed(const int value);
-	Fixed(const float value);
+	Fixed(const int int_value);
+	Fixed(const float fp_value);
 	Fixed(const Fixed &fixed);
 
 	~Fixed(void);
