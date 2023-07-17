@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 16:07:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/07/17 23:21:12 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/07/18 01:02:37 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,15 @@ int main(void)
 	// |> c is 42 as integer
 	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 	// |> d is 10 as integer
+
+	// Fixed::print_bits(1234.4321f);
+	// a.inspect();
+	// Fixed::print_bits(10);
+	// b.inspect();
+	// Fixed::print_bits(42.42f);
+	// c.inspect();
+	// Fixed::print_bits(10);
+	// d.inspect();
 
 	return 0;
 	// |> Destructor called

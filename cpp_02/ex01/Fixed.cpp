@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 16:08:08 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/07/18 00:07:57 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/07/18 01:02:48 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,61 @@ std::ostream &operator<<(std::ostream &out_strm, const Fixed &fixed)
 	out_strm << fixed.toFloat();
 
 	return out_strm;
+}
+
+void Fixed::inspect(void) const
+{
+	std::cout << std::endl;
+	std::cout << "=====================================================" << std::endl;
+	std::cout << "Fixed point number: " << this << std::endl;
+	std::cout << "Fractional bits: " << this->frac_bits << std::endl;
+	std::cout << "Raw bits:\t";
+	Fixed::print_bits(this->getRawBits());
+	std::cout << "Int bits:\t";
+	Fixed::print_bits(this->toInt());
+	std::cout << "Float bits:\t";
+	Fixed::print_bits(this->toFloat());
+	std::cout << "=====================================================" << std::endl;
+	std::cout << std::endl;
+}
+
+void Fixed::print_bits(int number)
+{
+	int i;
+
+	std::cout << "|";
+	i = (sizeof(int) * 8) - 1;
+	while (i >= 0)
+	{
+		if (number & (1u << i))
+			std::cout << "1";
+		else
+			std::cout << "0";
+
+		if (i % 8 == 0)
+			std::cout << "|";
+		i--;
+	}
+	std::cout << std::endl;
+}
+
+void Fixed::print_bits(float number)
+{
+	int i;
+	int *float_cast = (int *)&number;
+
+	std::cout << "|";
+	i = (sizeof(float) * 8) - 1;
+	while (i >= 0)
+	{
+		if (*float_cast & (1u << i))
+			std::cout << "1";
+		else
+			std::cout << "0";
+
+		if (i % 8 == 0)
+			std::cout << "|";
+		i--;
+	}
+	std::cout << std::endl;
 }

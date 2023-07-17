@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 16:08:11 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/07/18 00:31:00 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/07/18 01:02:26 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ public:
 	float toFloat(void) const;
 
 	Fixed &operator=(const Fixed &fixed);
+
+	void inspect(void) const;
+	static void print_bits(int number);
+	static void print_bits(float number);
 
 private:
 	int value;
