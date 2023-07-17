@@ -6,11 +6,11 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 16:07:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/07/17 11:50:00 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/07/17 12:25:04 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "MyClass.hpp"
 
 int main(void)
 {
