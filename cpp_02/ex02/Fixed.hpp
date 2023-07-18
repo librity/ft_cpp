@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 16:08:11 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/07/18 01:29:13 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/07/18 10:22:46 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,28 @@ public:
 	float toFloat(void) const;
 
 	Fixed &operator=(const Fixed &fixed);
+
+	bool operator>(const Fixed &fixed) const;
+	bool operator<(const Fixed &fixed) const;
+	bool operator>=(const Fixed &fixed) const;
+	bool operator<=(const Fixed &fixed) const;
+	bool operator==(const Fixed &fixed) const;
+	bool operator!=(const Fixed &fixed) const;
+
+	Fixed operator+(const Fixed &fixed) const;
+	Fixed operator-(const Fixed &fixed) const;
+	Fixed operator*(const Fixed &fixed) const;
+	Fixed operator/(const Fixed &fixed) const;
+
+	Fixed operator++(void);
+	Fixed operator++(int);
+	Fixed operator--(void);
+	Fixed operator--(int);
+
+	static Fixed &min(Fixed &a, Fixed &b);
+	static Fixed const &min(const Fixed &a, const Fixed &b);
+	static Fixed &max(Fixed &a, Fixed &b);
+	static Fixed const &max(const Fixed &a, const Fixed &b);
 
 	void inspect(void) const;
 	static void print_bits(int number);
