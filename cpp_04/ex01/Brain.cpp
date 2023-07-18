@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 16:08:08 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/07/18 20:58:15 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/07/19 01:08:52 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,15 @@
 Brain::Brain(void)
 {
 	std::cout << "DEBUG: Brain created: " << this << std::endl;
+
+	int i = 0;
+	while (i < Brain::power)
+	{
+		std::stringstream str_stream;
+		str_stream << "EMPTY IDEA #" << i;
+		this->ideas[i] = str_stream.str();
+		i++;
+	}
 }
 
 Brain::Brain(const Brain &brain)
@@ -71,4 +80,26 @@ void Brain::set_idea(std::string idea, int index)
 	}
 
 	this->ideas[index] = idea;
+}
+
+/******************************************************************************\
+ * DEBUG
+\******************************************************************************/
+
+void Brain::inspect(void) const
+{
+	std::cout << std::endl;
+	std::cout << "===============================================" << std::endl;
+
+	std::cout << "Brain: " << this << std::endl;
+	std::cout << "Ideas: " << std::endl;
+	int i = 0;
+	while (i < Brain::power)
+	{
+		std::cout << "\t" + this->ideas[i] << std::endl;
+		i++;
+	}
+
+	std::cout << "===============================================" << std::endl;
+	std::cout << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 16:08:11 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/07/18 20:58:04 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/07/19 00:09:44 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define BRAIN_HPP
 
 #include <iostream>
+#include <string>
+#include <sstream>
 
 class Brain
 {
@@ -26,6 +28,8 @@ public:
 
 	std::string get_idea(int index) const;
 	void set_idea(std::string idea, int index);
+
+	void inspect(void) const;
 
 private:
 	static const int power = 100;
