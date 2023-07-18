@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 16:08:08 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/07/18 13:25:31 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/07/18 22:30:46 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,29 @@ FragTrap &FragTrap::operator=(const FragTrap &frag_trap)
 /******************************************************************************\
  * ACTIONS
 \******************************************************************************/
+
+void FragTrap::attack(const std::string &target)
+{
+	if (this->is_dead())
+	{
+		std::cout << this->name + " has died and can't attack." << std::endl;
+		return;
+	}
+
+	if (this->is_tired())
+	{
+		std::cout << this->name + " ran out of energy and can't attack." << std::endl;
+		return;
+	}
+
+	this->energy_points -= 1;
+	std::cout
+		<< "FragTrap "
+		<< this->name + " attacks " + target + ", causing "
+		<< this->attack_damage
+		<< " points of damage!"
+		<< std::endl;
+}
 
 void FragTrap::highFivesGuys(void)
 {

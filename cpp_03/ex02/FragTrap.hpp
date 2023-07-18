@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 16:08:11 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/07/18 13:23:37 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/07/18 22:29:57 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ public:
 	~FragTrap(void);
 	FragTrap &operator=(const FragTrap &frag_trap);
 
+	void attack(const std::string &target);
 	void highFivesGuys(void);
 
 	void inspect(void) const;
