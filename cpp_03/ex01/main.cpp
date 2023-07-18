@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 16:07:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/07/18 13:16:41 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/07/18 13:35:20 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int main(void)
 {
+	int i;
+
 	ScavTrap a("A");
 	a.inspect();
 	ScavTrap b(a);
@@ -25,18 +27,9 @@ int main(void)
 
 	ScavTrap grumpy("Grumpy");
 	grumpy.inspect();
-	grumpy.attack("Roland");
-	grumpy.attack("Roland");
-	grumpy.attack("Roland");
-	grumpy.attack("Roland");
-	grumpy.attack("Roland");
-	grumpy.attack("Roland");
-	grumpy.attack("Roland");
-	grumpy.attack("Roland");
-	grumpy.attack("Roland");
-	grumpy.attack("Roland");
-	grumpy.attack("Roland");
-	grumpy.attack("Roland");
+	i = 60;
+	while (i--)
+		grumpy.attack("Roland");
 	grumpy.takeDamage(2);
 	grumpy.beRepaired(2);
 	grumpy.guardGate();
@@ -44,35 +37,23 @@ int main(void)
 
 	ScavTrap dopey("Dopey");
 	dopey.inspect();
-	dopey.takeDamage(2);
-	dopey.takeDamage(2);
-	dopey.takeDamage(2);
-	dopey.takeDamage(2);
-	dopey.takeDamage(2);
-	dopey.takeDamage(2);
-	dopey.takeDamage(2);
+	dopey.takeDamage(49);
+	dopey.takeDamage(49);
+	dopey.takeDamage(49);
+	dopey.takeDamage(49);
 	dopey.attack("Roland");
 	dopey.beRepaired(2);
-	grumpy.guardGate();
+	dopey.guardGate();
 	dopey.inspect();
 
 	ScavTrap doc("Doc");
 	doc.inspect();
-	doc.beRepaired(2);
-	doc.beRepaired(2);
-	doc.beRepaired(2);
-	doc.beRepaired(2);
-	doc.beRepaired(2);
-	doc.beRepaired(2);
-	doc.beRepaired(2);
-	doc.beRepaired(2);
-	doc.beRepaired(2);
-	doc.beRepaired(2);
-	doc.beRepaired(2);
-	doc.beRepaired(2);
+	i = 60;
+	while (i--)
+		doc.beRepaired(2);
 	doc.attack("Roland");
 	doc.takeDamage(2);
-	grumpy.guardGate();
+	doc.guardGate();
 	doc.inspect();
 
 	return 0;
