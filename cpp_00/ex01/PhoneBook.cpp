@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 21:50:22 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/07/16 12:32:39 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/07/18 19:54:28 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void PhoneBook::set_next_contact(
 
 	this->empty = false;
 
-	this->index = this->index % 8;
+	this->index = this->index % PhoneBook::size;
 	next_contact = &this->contacts[this->index];
 	next_contact->set(
 		first_name,
