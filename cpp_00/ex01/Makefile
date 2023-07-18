@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/28 21:50:19 by lpaulo-m          #+#    #+#              #
-#    Updated: 2023/07/04 23:49:14 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2023/07/18 18:27:51 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ all: $(NAME)
 	$(CC_STRICT) -c $< -o $@
 
 $(NAME): $(OBJECTS)
-	$(CC_STRICT) $(SOURCES) -o $(NAME)
+	$(CC_STRICT) $(OBJECTS) -o $(NAME)
 
 re: fclean all
 

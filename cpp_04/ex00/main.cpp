@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 16:07:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/07/18 18:24:07 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/07/18 18:25:08 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,25 @@
 
 int main(void)
 {
-	// const Animal *meta = new Animal();
-	// const Animal *j = new Dog();
-	// const Animal *i = new Cat();
+	const Animal *meta = new Animal();
+	const Animal *j = new Dog();
+	const Animal *i = new Cat();
 
-	// std::cout << i->getType() << " " << std::endl;
-	// i->makeSound();
-	// i->inspect();
+	std::cout << i->getType() << " " << std::endl;
+	i->makeSound();
+	i->inspect();
 
-	// std::cout << j->getType() << " " << std::endl;
-	// j->makeSound();
-	// j->inspect();
+	std::cout << j->getType() << " " << std::endl;
+	j->makeSound();
+	j->inspect();
 
-	// std::cout << meta->getType() << " " << std::endl;
-	// meta->makeSound();
-	// meta->inspect();
+	std::cout << meta->getType() << " " << std::endl;
+	meta->makeSound();
+	meta->inspect();
 
-	// delete meta;
-	// delete j;
-	// delete i;
+	delete meta;
+	delete j;
+	delete i;
 
 	const WrongAnimal *wrong_meta = new WrongAnimal();
 	const WrongAnimal *wrong_i = new WrongCat();
@@ -53,14 +53,14 @@ int main(void)
 	delete wrong_meta;
 	delete wrong_i;
 
-	// Dog a;
-	// a.inspect();
-	// Dog b(a);
-	// b.inspect();
-	// Dog c;
-	// c.inspect();
-	// c = b;
-	// c.inspect();
+	Dog a;
+	a.inspect();
+	Dog b(a);
+	b.inspect();
+	Dog c;
+	c.inspect();
+	c = b;
+	c.inspect();
 
 	return 0;
 }

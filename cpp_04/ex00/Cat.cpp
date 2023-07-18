@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 16:08:08 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/07/18 17:57:02 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/07/18 18:25:57 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ Cat::Cat(void)
 	std::cout << "DEBUG: Cat of type " + this->type + " created: " << this << std::endl;
 }
 
-Cat::Cat(const Cat &dog)
+Cat::Cat(const Cat &cat)
 	: Animal()
 {
 	std::cout << "DEBUG: Cat copy constructor called" << std::endl;
 
-	*this = dog;
+	*this = cat;
 }
 
 Cat::~Cat(void)
@@ -36,14 +36,14 @@ Cat::~Cat(void)
 	std::cout << "DEBUG: Cat " << this << " destroyed" << std::endl;
 }
 
-Cat &Cat::operator=(const Cat &dog)
+Cat &Cat::operator=(const Cat &cat)
 {
 	std::cout << "DEBUG: Cat copy assignment operator called" << std::endl;
 
-	if (this == &dog)
+	if (this == &cat)
 		return *this;
 
-	this->type = dog.getType();
+	this->type = cat.getType();
 
 	return *this;
 }

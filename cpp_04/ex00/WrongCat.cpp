@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 16:08:08 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/07/18 18:19:00 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/07/18 18:25:46 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ WrongCat::WrongCat(void)
 	std::cout << "DEBUG: WrongCat of type " + this->type + " created: " << this << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat &dog)
+WrongCat::WrongCat(const WrongCat &cat)
 	: WrongAnimal()
 {
 	std::cout << "DEBUG: WrongCat copy constructor called" << std::endl;
 
-	*this = dog;
+	*this = cat;
 }
 
 WrongCat::~WrongCat(void)
@@ -36,14 +36,14 @@ WrongCat::~WrongCat(void)
 	std::cout << "DEBUG: WrongCat " << this << " destroyed" << std::endl;
 }
 
-WrongCat &WrongCat::operator=(const WrongCat &dog)
+WrongCat &WrongCat::operator=(const WrongCat &cat)
 {
 	std::cout << "DEBUG: WrongCat copy assignment operator called" << std::endl;
 
-	if (this == &dog)
+	if (this == &cat)
 		return *this;
 
-	this->type = dog.getType();
+	this->type = cat.getType();
 
 	return *this;
 }

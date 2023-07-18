@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 16:08:11 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/07/18 18:18:26 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/07/18 18:25:39 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ class WrongCat : public WrongAnimal
 
 public:
 	WrongCat(void);
-	WrongCat(const WrongCat &dog);
+	WrongCat(const WrongCat &cat);
 	~WrongCat(void);
-	WrongCat &operator=(const WrongCat &dog);
+	WrongCat &operator=(const WrongCat &cat);
 
 	void makeSound(void) const;
 
