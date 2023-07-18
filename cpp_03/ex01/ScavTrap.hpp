@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MyClass.cpp                                        :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/09 16:08:08 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/07/18 12:13:33 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2023/07/09 16:08:11 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2023/07/18 12:22:10 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "MyClass.hpp"
+#ifndef SCAV_TRAP_HPP
+#define SCAV_TRAP_HPP
 
-MyClass::MyClass(void)
-{
-}
+#include "ClapTrap.hpp"
 
-MyClass::MyClass(const MyClass &my_class)
+class ScavTrap : public ClapTrap
 {
-}
 
-MyClass::~MyClass(void)
-{
-}
+public:
+	ScavTrap(std::string name);
+	ScavTrap(const ScavTrap &scav_trap);
+	~ScavTrap(void);
+	ScavTrap &operator=(const ScavTrap &scav_trap);
 
-MyClass &MyClass::operator=(const MyClass &my_class)
-{
-	// TODO: insert return statement here
-}
+	void guardGate(void);
+
+	void inspect(void) const;
+};
+
+#endif

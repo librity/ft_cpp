@@ -63,5 +63,9 @@
     "sstream": "cpp",
     "fstream": "cpp",
     "bitset": "cpp"
-  }
+  },
+  "cSpell.words": [
+    "scav",
+    "Scav"
+  ]
 }

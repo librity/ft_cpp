@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 16:08:11 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/07/17 12:24:58 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/07/18 12:13:38 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ class MyClass
 {
 
 public:
-	MyClass();
+	MyClass(void);
 	MyClass(const MyClass &my_class);
-	~MyClass();
+	~MyClass(void);
 	MyClass &operator=(const MyClass &my_class);
 };
 
