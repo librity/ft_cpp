@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 16:08:11 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/07/18 12:12:59 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/07/18 17:12:46 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ public:
 	~ClapTrap();
 	ClapTrap &operator=(const ClapTrap &clap_trap);
 
-	const std::string &get_name(void) const;
+	std::string get_name(void) const;
 	int get_hit_points(void) const;
 	int get_energy_points(void) const;
 	int get_attack_damage(void) const;
