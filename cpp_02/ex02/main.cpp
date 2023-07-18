@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 16:07:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/07/18 10:22:42 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/07/18 10:24:12 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int main(void)
 	// |> 10.1016
 	std::cout << Fixed::max(a, b) << std::endl;
 	// |> 10.1016
+	std::cout << std::endl;
 
 	// std::cout << (a > b) << std::endl;
 	// std::cout << (a < b) << std::endl;
@@ -38,19 +39,23 @@ int main(void)
 	// std::cout << (a <= b) << std::endl;
 	// std::cout << (a == b) << std::endl;
 	// std::cout << (a != b) << std::endl;
+	// std::cout << std::endl;
 
 	// std::cout << a + b << std::endl;
 	// std::cout << a - b << std::endl;
 	// std::cout << a * b << std::endl;
 	// std::cout << a / b << std::endl;
+	// std::cout << std::endl;
 
 	// std::cout << a++ << std::endl;
 	// std::cout << ++a << std::endl;
 	// std::cout << --a << std::endl;
 	// std::cout << a-- << std::endl;
+	// std::cout << std::endl;
 
 	// std::cout << Fixed::min(a, b) << std::endl;
 	// std::cout << Fixed::max(a, b) << std::endl;
+	// std::cout << std::endl;
 
 	return 0;
 }
