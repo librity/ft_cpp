@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 16:08:08 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/07/21 18:53:19 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/07/21 18:53:08 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,28 +18,22 @@
 
 Bureaucrat::Bureaucrat(void) : name(""), grade(150)
 {
-	std::cout << "DEBUG: Bureaucrat constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade)
 	: name(name)
 {
 	this->setGrade(grade);
-
-	std::cout << "DEBUG: Bureaucrat " + this->name + " created: " << this << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &bcrat)
 {
-	std::cout << "DEBUG: Bureaucrat copy constructor called" << std::endl;
 
 	*this = bcrat;
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &bcrat)
 {
-	std::cout << "DEBUG: Bureaucrat copy assignment operator called" << std::endl;
-
 	if (this == &bcrat)
 		return *this;
 
@@ -51,7 +45,6 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &bcrat)
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "DEBUG: Bureaucrat " << this << " destroyed" << std::endl;
 }
 
 /******************************************************************************\
@@ -103,13 +96,30 @@ void Bureaucrat::decrementGrade(void)
 	this->setGrade(this->grade + 1);
 }
 
-void Bureaucrat::signForm(Form &form) const
+void Bureaucrat::signForm(AForm &form) const
 {
 	try
 	{
 		form.beSigned(*this);
 		std::cout
 			<< this->name + " signed form " + form.getName()
+			<< std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout
+			<< this->name + " couldn't sign form " + form.getName() + " because: " + e.what()
+			<< std::endl;
+	}
+}
+
+void Bureaucrat::executeForm(AForm const &form) const
+{
+	try
+	{
+		form.execute(*this);
+		std::cout
+			<< this->name + " executed " + form.getName()
 			<< std::endl;
 	}
 	catch (std::exception &e)

@@ -1,48 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 16:08:08 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/07/21 17:22:35 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/07/21 17:25:30 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
 /******************************************************************************\
  * OCCF
 \******************************************************************************/
 
-Form::Form(void)
-	: name(""), isSigned(false), signGrade(150), execGrade(150)
+AForm::AForm(void)
+	: target(""), name(""), isSigned(false), signGrade(150), execGrade(150)
 {
-	std::cout << "DEBUG: Form constructor called" << std::endl;
 }
 
-Form::Form(std::string name, int signGrade, int execGrade)
-	: name(name), isSigned(false), signGrade(150), execGrade(150)
+AForm::AForm(std::string name, int signGrade, int execGrade)
+	: target(""), name(name), isSigned(false), signGrade(150), execGrade(150)
 {
 	this->setSignGrade(signGrade);
 	this->setExecGrade(execGrade);
-
-	std::cout << "DEBUG: Form " + this->name + " created: " << this << std::endl;
 }
 
-Form::Form(const Form &form)
-	: name(""), isSigned(false), signGrade(150), execGrade(150)
+AForm::AForm(const AForm &form)
+	: target(""), name(""), isSigned(false), signGrade(150), execGrade(150)
 {
-	std::cout << "DEBUG: Form copy constructor called" << std::endl;
-
 	*this = form;
 }
 
-Form &Form::operator=(const Form &form)
+AForm &AForm::operator=(const AForm &form)
 {
-	std::cout << "DEBUG: Form copy assignment operator called" << std::endl;
-
 	if (this == &form)
 		return *this;
 
@@ -50,65 +43,69 @@ Form &Form::operator=(const Form &form)
 	this->setIsSigned(form.isSigned);
 	this->setSignGrade(form.signGrade);
 	this->setExecGrade(form.execGrade);
+	this->target = form.target;
 
 	return *this;
 }
 
-Form::~Form()
+AForm::~AForm()
 {
-	std::cout << "DEBUG: Form " << this << " destroyed" << std::endl;
 }
 
 /******************************************************************************\
  * GETTERS
 \******************************************************************************/
 
-const std::string &Form::getName(void) const
+const std::string &AForm::getName(void) const
 {
 	return this->name;
 }
 
-bool Form::getIsSigned(void) const
+bool AForm::getIsSigned(void) const
 {
 	return this->isSigned;
 }
 
-int Form::getSignGrade(void) const
+int AForm::getSignGrade(void) const
 {
 
 	return this->signGrade;
 }
 
-int Form::getExecGrade(void) const
+int AForm::getExecGrade(void) const
 {
-
 	return this->execGrade;
+}
+
+const std::string &AForm::getTarget(void) const
+{
+	return this->target;
 }
 
 /******************************************************************************\
  * SETTERS
 \******************************************************************************/
 
-void Form::setName(std::string name)
+void AForm::setName(std::string name)
 {
 	const_cast<std::string &>(this->name) = name;
 }
 
-void Form::setIsSigned(bool isSigned)
+void AForm::setIsSigned(bool isSigned)
 {
 	this->isSigned = isSigned;
 }
 
-void Form::setSignGrade(int newGrade)
+void AForm::setSignGrade(int newGrade)
 {
-	Form::validateGrade(newGrade);
+	AForm::validateGrade(newGrade);
 
 	const_cast<int &>(this->signGrade) = newGrade;
 }
 
-void Form::setExecGrade(int newGrade)
+void AForm::setExecGrade(int newGrade)
 {
-	Form::validateGrade(newGrade);
+	AForm::validateGrade(newGrade);
 
 	const_cast<int &>(this->execGrade) = newGrade;
 }
@@ -117,11 +114,11 @@ void Form::setExecGrade(int newGrade)
  * ACTIONS
 \******************************************************************************/
 
-void Form::beSigned(const Bureaucrat &bcrat)
+void AForm::beSigned(const Bureaucrat &bcrat)
 {
 	if (bcrat.getGrade() > this->signGrade)
 	{
-		throw Form::GradeTooHighException();
+		throw AForm::GradeTooHighException();
 		return;
 	}
 
@@ -132,17 +129,32 @@ void Form::beSigned(const Bureaucrat &bcrat)
  * VALIDATORS
 \******************************************************************************/
 
-void Form::validateGrade(int grade)
+void AForm::validateGrade(int grade)
 {
 	if (grade < 1)
 	{
-		throw Form::GradeTooHighException();
+		throw AForm::GradeTooHighException();
 		return;
 	}
 
 	if (grade > 150)
 	{
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
+		return;
+	}
+}
+
+void AForm::validateExecution(Bureaucrat const &executor) const
+{
+	if (this->isSigned == false)
+	{
+		throw AForm::UnsignedFormException();
+		return;
+	}
+
+	if (executor.getGrade() > this->getExecGrade())
+	{
+		throw AForm::GradeTooHighException();
 		return;
 	}
 }
@@ -151,24 +163,32 @@ void Form::validateGrade(int grade)
  * ERRORS
 \******************************************************************************/
 
-const char *Form::GradeTooHighException::what(void) const throw()
+const char *AForm::GradeTooHighException::what(void) const throw()
 {
 	return "Form grade is too high!";
 }
 
-const char *Form::GradeTooLowException::what(void) const throw()
+const char *AForm::GradeTooLowException::what(void) const throw()
 {
 	return "Form grade is too low!";
+}
+
+const char *AForm::UnsignedFormException::what(void) const throw()
+{
+	return "Can't execute an unsigned form!";
 }
 
 /******************************************************************************\
  * OPERATORS
 \******************************************************************************/
 
-std::ostream &operator<<(std::ostream &out_strm, const Form &form)
+std::ostream &operator<<(std::ostream &out_strm, const AForm &form)
 {
 	out_strm
-		<< form.getName() + " form with sign grade "
+		<< form.getName()
+		<< " form for "
+		<< form.getTarget()
+		<< " with sign grade "
 		<< form.getSignGrade()
 		<< " and execution grade "
 		<< form.getExecGrade()
@@ -184,13 +204,14 @@ std::ostream &operator<<(std::ostream &out_strm, const Form &form)
  * DEBUG
 \******************************************************************************/
 
-void Form::inspect(void) const
+void AForm::inspect(void) const
 {
 	std::cout << std::endl;
 	std::cout << "===============================================" << std::endl;
 
 	std::cout << "Form: " << this << std::endl;
 	std::cout << "Name: " << this->name << std::endl;
+	std::cout << "Target: " << this->target << std::endl;
 	std::cout << "Is signed: " << this->isSigned << std::endl;
 	std::cout << "Sign grade: " << this->signGrade << std::endl;
 	std::cout << "Execute grade: " << this->execGrade << std::endl;
