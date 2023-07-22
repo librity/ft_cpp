@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 16:07:50 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/07/22 19:55:05 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/07/22 19:57:11 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,25 @@
 
 int main()
 {
-	int a = 5, b = 10;
-	std::cout << "Before swap: a = " << a << ", b = " << b << std::endl;
-	swap(a, b);
-	std::cout << "After swap: a = " << a << ", b = " << b << std::endl;
+	int a = 2;
+	int b = 3;
+	::swap(a, b);
+	std::cout << "a = " << a << ", b = " << b << std::endl;
+	// a = 3, b = 2
+	std::cout << "min( a, b ) = " << ::min(a, b) << std::endl;
+	// min(a, b) = 2
+	std::cout << "max( a, b ) = " << ::max(a, b) << std::endl;
+	// max(a, b) = 3
 
-	int x = 15, y = 20;
-	std::cout << "Min: " << min(x, y) << std::endl;
-	std::cout << "Max: " << max(x, y) << std::endl;
-
-	double p = 3.14, q = 2.71;
-	std::cout << "Min: " << min(p, q) << std::endl;
-	std::cout << "Max: " << max(p, q) << std::endl;
+	std::string c = "chaine1";
+	std::string d = "chaine2";
+	::swap(c, d);
+	std::cout << "c = " << c << ", d = " << d << std::endl;
+	// c = chaine2, d = chaine1
+	std::cout << "min( c, d ) = " << ::min(c, d) << std::endl;
+	// min(c, d) = chaine1
+	std::cout << "max( c, d ) = " << ::max(c, d) << std::endl;
+	// max(c, d) = chaine2
 
 	return 0;
 }
