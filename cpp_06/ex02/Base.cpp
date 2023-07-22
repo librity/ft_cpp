@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 16:08:08 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/07/22 19:13:23 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/07/22 19:25:00 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void identify(Base &p)
 {
 	try
 	{
-		dynamic_cast<A &>(p);
+		A a = dynamic_cast<A &>(p);
 		std::cout << "p: A." << std::endl;
 		return;
 	}
@@ -66,7 +66,7 @@ void identify(Base &p)
 
 	try
 	{
-		dynamic_cast<B &>(p);
+		B b = dynamic_cast<B &>(p);
 		std::cout << "p: B." << std::endl;
 		return;
 	}
@@ -76,7 +76,7 @@ void identify(Base &p)
 
 	try
 	{
-		dynamic_cast<C &>(p);
+		C c = dynamic_cast<C &>(p);
 		std::cout << "p: C." << std::endl;
 		return;
 	}
