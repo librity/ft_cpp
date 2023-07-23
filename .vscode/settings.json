@@ -62,7 +62,8 @@
     "iomanip": "cpp",
     "sstream": "cpp",
     "fstream": "cpp",
-    "bitset": "cpp"
+    "bitset": "cpp",
+    "*.tpp": "cpp"
   },
   "cSpell.words": [
     "AFORM",
