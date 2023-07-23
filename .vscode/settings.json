@@ -63,11 +63,14 @@
     "sstream": "cpp",
     "fstream": "cpp",
     "bitset": "cpp",
-    "*.tpp": "cpp"
+    "*.tpp": "cpp",
+    "map": "cpp",
+    "set": "cpp"
   },
   "cSpell.words": [
     "AFORM",
     "bcrat",
+    "easyfind",
     "Robotomy",
     "scav",
     "Scav"
