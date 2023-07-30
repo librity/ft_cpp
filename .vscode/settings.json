@@ -65,12 +65,18 @@
     "bitset": "cpp",
     "*.tpp": "cpp",
     "map": "cpp",
-    "set": "cpp"
+    "set": "cpp",
+    "cerrno": "cpp",
+    "cfloat": "cpp",
+    "climits": "cpp",
+    "queue": "cpp",
+    "stack": "cpp"
   },
   "cSpell.words": [
     "AFORM",
     "bcrat",
     "easyfind",
+    "mstack",
     "Robotomy",
     "scav",
     "Scav"
