@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 16:08:08 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/08/07 00:24:12 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/08/07 00:42:07 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,12 @@ void BitcoinExchange::open_input_file(void)
 void BitcoinExchange::print_exchange_values(void)
 {
 	std::string line;
-	std::string date;
-	std::string value;
-	double rate;
 	size_t pos;
+
+	std::string date_str;
+	std::string value_str;
+	double value;
+	double rate;
 
 	while (std::getline(input_file, line))
 	{
@@ -77,23 +79,32 @@ void BitcoinExchange::print_exchange_values(void)
 			continue;
 
 		pos = line.find(input_separator);
-		if (pos == std::string::npos)
-		{
-			std::cout << "Error: bad input => " << line << std::endl;
-			continue;
-		}
-
-		date = line.substr(0, pos);
-		value = line.substr(pos + 3);
-
-		if (!is_valid_date(date))
-			continue;
-		if (!is_valid_value(value))
+		if (bad_input_line(line, pos))
 			continue;
 
-		rate = get_rate_for_date(date);
-		std::cout << date + " => " + value + " = " << parse_value(value) * rate << std::endl;
+		date_str = line.substr(0, pos);
+		if (!is_valid_date(date_str))
+			continue;
+
+		value_str = line.substr(pos + 3);
+		if (!is_valid_value(value_str))
+			continue;
+
+		rate = get_rate_for_date(date_str);
+		value = std::atof(value_str.c_str());
+		std::cout << date_str + " => " + value_str + " = " << value * rate << std::endl;
 	}
+}
+
+bool BitcoinExchange::bad_input_line(std::string &line, size_t pos)
+{
+	if (pos == std::string::npos)
+	{
+		std::cout << "Error: bad input => " << line << std::endl;
+		return true;
+	}
+
+	return false;
 }
 
 void BitcoinExchange::close_input_file(void)
@@ -122,7 +133,7 @@ void BitcoinExchange::load_exchange(void)
 
 	std::string line;
 	std::string date;
-	std::string rate;
+	double rate;
 	while (std::getline(exchange_file, line))
 	{
 		if (line == exchange_header)
@@ -130,12 +141,12 @@ void BitcoinExchange::load_exchange(void)
 
 		std::stringstream line_strm(line);
 		std::getline(line_strm, date, exchange_separator);
-		std::getline(line_strm, rate);
+		line_strm >> rate;
 
 		if (!is_valid_date(date))
 			continue;
 
-		exchange[parse_date(date)] = parse_rate(rate);
+		exchange[parse_date(date)] = rate;
 	}
 
 	exchange_file.close();
@@ -158,11 +169,6 @@ double BitcoinExchange::get_rate_for_date(std::string date_str)
 	}
 
 	return it->second;
-}
-
-double BitcoinExchange::parse_rate(std::string rate_str)
-{
-	return std::atof(rate_str.c_str());
 }
 
 t_tm BitcoinExchange::get_min_date(void)
@@ -274,11 +280,6 @@ bool BitcoinExchange::is_valid_value(std::string value_str)
 	}
 
 	return true;
-}
-
-double BitcoinExchange::parse_value(std::string value_str)
-{
-	return std::atof(value_str.c_str());
 }
 
 /******************************************************************************\

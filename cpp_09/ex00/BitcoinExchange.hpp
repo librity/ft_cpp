@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 16:08:11 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/08/07 00:22:28 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/08/07 00:40:20 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ private:
 	static void open_input_file(void);
 	static void print_exchange_values(void);
 	static void close_input_file(void);
+	static bool bad_input_line(std::string &line, size_t pos);
 
 	// EXCHANGE
 	static std::map<t_tm, double, s_time_compare> exchange;
@@ -63,7 +64,6 @@ private:
 	static void load_exchange(void);
 	static double get_rate_for_date(std::string date_str);
 	static void dump_exchange(void);
-	static double parse_rate(std::string rate_str);
 	static t_tm get_min_date(void);
 	static t_tm get_max_date(void);
 
@@ -77,7 +77,6 @@ private:
 
 	// BTC VALUE
 	static bool is_valid_value(std::string value_str);
-	static double parse_value(std::string value_str);
 
 	// OCCF
 	BitcoinExchange(void);

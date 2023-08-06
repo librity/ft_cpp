@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/09 16:07:56 by lpaulo-m          #+#    #+#              #
-#    Updated: 2023/07/30 18:00:33 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2023/08/07 00:42:12 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,9 +59,11 @@ fclean: clean
 
 run: re
 	./$(NAME) input.txt
+	./$(NAME) input_empty.txt
 
 vg: re
 	valgrind ./$(NAME) input.txt
+	valgrind ./$(NAME) input_empty.txt
 
 ################################################################################
 # PHONY
