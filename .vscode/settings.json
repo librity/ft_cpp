@@ -70,7 +70,8 @@
     "cfloat": "cpp",
     "climits": "cpp",
     "queue": "cpp",
-    "stack": "cpp"
+    "stack": "cpp",
+    "cstring": "cpp"
   },
   "cSpell.words": [
     "AFORM",
