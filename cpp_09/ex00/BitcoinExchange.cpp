@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 16:08:08 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2023/08/07 00:42:07 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2023/08/13 13:57:32 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -241,7 +241,7 @@ t_tm BitcoinExchange::yesterday(t_tm date)
 {
 	const time_t one_day_secs = 24 * 60 * 60;
 
-	time_t yesterday_secs = std::mktime(&date) + one_day_secs;
+	time_t yesterday_secs = std::mktime(&date) - one_day_secs;
 	date = *std::localtime(&yesterday_secs);
 	return date;
 }
